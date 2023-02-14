@@ -51,7 +51,10 @@ public class DriveCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-
+    /**
+     * Passes controller values to the drive 
+     */
+    s_DriveTrain.drive(joystickLeft.getRawAxis(0), joystickRight.getRawAxis(0));
   }
 
   // Called once the command ends or is interrupted.
