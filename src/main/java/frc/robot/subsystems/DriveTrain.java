@@ -9,6 +9,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+import frc.robot.commands.DriveCommand;
 
 public class DriveTrain extends SubsystemBase {
   private WPI_TalonSRX driveFrontRight, driveBackRight, driveFrontLeft, driveBackLeft;
@@ -27,14 +28,27 @@ public class DriveTrain extends SubsystemBase {
     configMotors();
   }
 
+    /**
+   * Method is used to stop the drive train.
+   * @see DriveCommand
+   */
   public void drive(double speedLeft, double speedRight){
     differentialDrive.tankDrive(speedLeft, speedRight);
   }
 
+  /**
+   * Method is used to stop the drive train.
+   * @see DriveCommand#end(boolean)
+   */
   public void stopDrive(){
     differentialDrive.stopMotor();
   }
 
+  /**
+   * This method is used to set the back motors to follow the front ones
+   * Factory reset the motors, Should be done once any time a motor is use
+   * Also creates a differentialDrive which makes an easier way to control motors 
+   */
   public void configMotors(){
     driveFrontRight.configFactoryDefault();
     driveBackRight.configFactoryDefault();

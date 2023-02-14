@@ -19,14 +19,14 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   //Subsystems
-  private final DriveTrain s_DriveTrain = new DriveTrain();
+  private final DriveTrain s_DriveTrain = new DriveTrain(); // Creates the drive train
 
   //Joyssticks and Conttroller
   private final Joystick joystickLeft = new Joystick(Constants.JOYSTICK_LEFT);
   private final Joystick joystickRight = new Joystick(Constants.JOYSTICK_RIGHT);
 
   //Commands
-  private final DriveCommand c_DriveCommand = new DriveCommand(s_DriveTrain, joystickLeft, joystickRight);
+  private final DriveCommand c_DriveCommand = new DriveCommand(s_DriveTrain, joystickLeft, joystickRight); // Creates the drive command
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {

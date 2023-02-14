@@ -6,6 +6,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.RobotContainer;
 import frc.robot.subsystems.DriveTrain;
 
 /** An example command that uses an example subsystem. */
@@ -20,13 +21,14 @@ public class DriveCommand extends CommandBase {
    * Drive Contructor 
    * Creates a new Drive command
    * Everthing needed to use the drive command is passed into this contructor.
-   * See line 29 of RobotContainer.java to see where objects are passed in.
+   * @see RobotContainer#c_DriveCommand
    *
    * @param subsystem The subsystem used by this command.
    * @param The left Joystick
    * @param The right Joystick
    */
   public DriveCommand(DriveTrain s_DriveTrain, Joystick joystickLeft, Joystick joystickRight) {
+
     // Sets the drivetrain created on line 14 equal to the drivetrain that is passed into the contructor
     this.s_DriveTrain = s_DriveTrain;
 
@@ -39,6 +41,7 @@ public class DriveCommand extends CommandBase {
     // Use addRequirements() here to declare subsystem dependencies. 
     // addRequirements adds the subsystem needed to control command
     addRequirements(s_DriveTrain);
+    
   }
 
   // Called when the command is initially scheduled. Called when command is called
