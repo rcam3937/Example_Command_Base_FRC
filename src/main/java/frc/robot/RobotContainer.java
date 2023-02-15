@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.DriveCommand;
+import frc.robot.commands.RunArm;
+import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -18,19 +20,23 @@ import edu.wpi.first.wpilibj2.command.Command;
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-  //Subsystems
+  // Subsystems
   private final DriveTrain s_DriveTrain = new DriveTrain(); // Creates the drive train
+  private final Arm s_Arm = new Arm();
 
-  //Joyssticks and Conttroller
+  // Joyssticks and Conttroller
   private final Joystick joystickLeft = new Joystick(Constants.JOYSTICK_LEFT);
   private final Joystick joystickRight = new Joystick(Constants.JOYSTICK_RIGHT);
+  private final XboxController xboxController = new XboxController(Constants.XBOXCONTROLLER);
 
-  //Commands
+  // Commands
   private final DriveCommand c_DriveCommand = new DriveCommand(s_DriveTrain, joystickLeft, joystickRight); // Creates the drive command
+  private final RunArm c_RunArm = new RunArm(s_Arm, xboxController); // Creates Run Arm command
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     s_DriveTrain.setDefaultCommand(c_DriveCommand);
+    s_Arm.setDefaultCommand(c_RunArm);
     // Configure the button bindings
     configureButtonBindings();
   }

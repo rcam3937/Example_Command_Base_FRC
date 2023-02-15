@@ -24,8 +24,8 @@ public class DriveCommand extends CommandBase {
    * @see RobotContainer#c_DriveCommand
    *
    * @param subsystem The subsystem used by this command.
-   * @param The left Joystick
-   * @param The right Joystick
+   * @param eft Joystick
+   * @param ight Joystick
    */
   public DriveCommand(DriveTrain s_DriveTrain, Joystick joystickLeft, Joystick joystickRight) {
 
@@ -51,9 +51,7 @@ public class DriveCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    /**
-     * Passes controller values to the drive 
-     */
+    //Passes controller values to the drive 
     s_DriveTrain.drive(joystickLeft.getRawAxis(0), joystickRight.getRawAxis(0));
   }
 
