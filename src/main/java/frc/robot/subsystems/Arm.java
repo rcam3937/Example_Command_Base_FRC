@@ -45,27 +45,11 @@ public class Arm extends SubsystemBase {
   }
 
   /**
-   * Sets Arm to position. A better to do this would be using position or motion magic mode.
-   * But both of those would need a PID loop which I did not want to set up.
-   * 
-   * @param speed
-   * @param position
-   */
-  public void setPosition(double speed, double position){
-    if(getExtensionPosition() >= position){
-      stopMotor();
-    }
-    else if(getExtensionPosition() < position){
-      extensionMotor.set(ControlMode.PercentOutput, 0.5);
-    }
-  }
-
-  /**
    * Makes the motor only run not to a position.
    * 
    * @param speed The speed to set.  Value should be between -1.0 and 1.0.
    */
-  public void justRun(double speed){
+  public void RunArm(double speed){
     extensionMotor.set(speed);
   }
 
